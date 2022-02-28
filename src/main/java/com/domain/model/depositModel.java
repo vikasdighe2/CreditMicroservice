@@ -2,16 +2,20 @@ package com.domain.model;
 
 
 
-public class depositModel {
+public class DepositModel {
 	private long destinationAccountNumber;
     private long amount ;
     private long sourceAccountNumber;
     
+    
+    public DepositModel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    public depositModel() {
-    }
 
-    public depositModel(long amount) {
+
+	public DepositModel(long amount) {
         this.amount = amount;
     }
 

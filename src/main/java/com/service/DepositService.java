@@ -4,8 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.domain.BankAccount;
 import com.domain.Credit;
-
-import com.domain.model.depositModel;
+import com.domain.model.DepositModel;
 import com.repository.BankAccountRepository;
 import com.repository.CreditRepository;
 
@@ -30,7 +29,7 @@ public class DepositService {
 		this.creditRepository = creditRepository;
     }
 
-	public Credit doDeposit(depositModel oc) throws NoSuchAccountException {
+	public Credit doDeposit(DepositModel oc) throws NoSuchAccountException {
 		Optional<BankAccount> optionalBankAccount = bankAccountRepository.findById(oc.getDestinationAccountNumber());
         if(!optionalBankAccount.isPresent()){
             throw new NoSuchAccountException(": "+ oc.getDestinationAccountNumber());
@@ -45,7 +44,7 @@ public class DepositService {
 		
 	}
 
-	private Credit updateTransactionTable(depositModel oc) {
+	private Credit updateTransactionTable(DepositModel oc) {
 		Credit credit= new Credit();
 		credit.setSourceAccountnumber(oc.getSourceAccountNumber());
 		credit.setDestinationAccountnumber(oc.getDestinationAccountNumber());

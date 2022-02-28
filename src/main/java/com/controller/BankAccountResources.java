@@ -14,7 +14,7 @@ import com.domain.Credit;
 import com.domain.Customer;
 import com.domain.model.AccountModel;
 import com.domain.model.CustomerModel;
-import com.domain.model.depositModel;
+import com.domain.model.DepositModel;
 import com.service.AccountService;
 import com.service.CustomerService;
 import com.service.DepositService;
@@ -70,7 +70,7 @@ public class BankAccountResources {
     }
     
     @PostMapping(value = "accounts/deposit")
-    public ResponseEntity<ResponseModel> deposit(@RequestBody depositModel oc)  {
+    public ResponseEntity<ResponseModel> deposit(@RequestBody DepositModel oc)  {
     	ResponseModel responseModel=new ResponseModel();
     	Credit credit;
 		try {

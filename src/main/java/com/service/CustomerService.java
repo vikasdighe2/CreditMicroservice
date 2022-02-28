@@ -7,7 +7,6 @@ import com.domain.Credit;
 import com.domain.Customer;
 import com.domain.model.AccountModel;
 import com.domain.model.CustomerModel;
-import com.domain.model.depositModel;
 import com.repository.BankAccountRepository;
 import com.repository.CreditRepository;
 import com.repository.CustomerRepository;
