@@ -13,31 +13,32 @@ public class BankAccount implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
-    private long accountNumber;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+	@SequenceGenerator(name = "sequenceGenerator")
+	private long accountNumber;
 
-    private long balance;
-    
-    private  Instant creationDate;
-    
-	
-	  @OneToOne
-	  @JoinColumn(name = "customerId",referencedColumnName = "customerId")
-	   private Customer customer;
-	 
-    
-    
+	private long balance;
+
+	private Instant creationDate;
+
+	@OneToOne
+	@JoinColumn(name = "customerId", referencedColumnName = "customerId")
+	private Customer customer;
+
+	private String email;
+
 	public BankAccount() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public BankAccount( long balance, Instant creationDate, Customer customer) {
+	public BankAccount(long accountNumber, long balance, Instant creationDate, Customer customer, String email) {
 		super();
+		this.accountNumber = accountNumber;
 		this.balance = balance;
 		this.creationDate = creationDate;
 		this.customer = customer;
+		this.email = email;
 	}
 
 	public long getAccountNumber() {
@@ -48,16 +49,20 @@ public class BankAccount implements Serializable{
 		this.accountNumber = accountNumber;
 	}
 
+	public long getBalance() {
+		return balance;
+	}
+
+	public void setBalance(long balance) {
+		this.balance = balance;
+	}
+
 	public Instant getCreationDate() {
 		return creationDate;
 	}
 
 	public void setCreationDate(Instant creationDate) {
 		this.creationDate = creationDate;
-	}
-
-	public void setBalance(long balance) {
-		this.balance = balance;
 	}
 
 	public Customer getCustomer() {
@@ -68,14 +73,18 @@ public class BankAccount implements Serializable{
 		this.customer = customer;
 	}
 
-	public long getBalance() {
-		return balance;
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override
 	public String toString() {
 		return "BankAccount [accountNumber=" + accountNumber + ", balance=" + balance + ", creationDate=" + creationDate
-				+ ", customer=" + customer + "]";
+				+ ", customer=" + customer + ", email=" + email + "]";
 	}
     
     

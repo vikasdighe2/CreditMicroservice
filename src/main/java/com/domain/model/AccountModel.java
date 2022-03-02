@@ -6,20 +6,22 @@ import com.domain.Customer;
 
 public class AccountModel {
 	private long accountNumber;
-    private long balance ;
-    private Instant creationDate;
-    private Customer customer;
-    
+	private long balance;
+	private Instant creationDate;
+	private Customer customer;
+	private String email;
 
-    public AccountModel() {
-    }
+	public AccountModel() {
+	}
 
-    public AccountModel(long accountNumber,long balance,Instant creationDate,Customer customer) {
-    	this.accountNumber=accountNumber;
-        this.balance = balance;
-        this.creationDate=creationDate;
-        this.customer=customer;
-    }
+	public AccountModel(long accountNumber, long balance, Instant creationDate, Customer customer, String email) {
+		super();
+		this.accountNumber = accountNumber;
+		this.balance = balance;
+		this.creationDate = creationDate;
+		this.customer = customer;
+		this.email = email;
+	}
 
 	public long getAccountNumber() {
 		return accountNumber;
@@ -37,8 +39,6 @@ public class AccountModel {
 		this.balance = balance;
 	}
 
-
-
 	public Instant getCreationDate() {
 		return creationDate;
 	}
@@ -55,13 +55,19 @@ public class AccountModel {
 		this.customer = customer;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	@Override
 	public String toString() {
 		return "AccountModel [accountNumber=" + accountNumber + ", balance=" + balance + ", creationDate="
-				+ creationDate + ", customer=" + customer + "]";
+				+ creationDate + ", customer=" + customer + ", email=" + email + "]";
 	}
 
-
-  
     
 }

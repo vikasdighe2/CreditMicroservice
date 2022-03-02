@@ -20,8 +20,7 @@ import java.util.Optional;
 @Transactional
 public class AccountService {
 
-   
-    private final BankAccountRepository bankAccountRepository;
+	private final BankAccountRepository bankAccountRepository;
 
     public AccountService( BankAccountRepository bankAccountRepository) {
        
@@ -37,6 +36,7 @@ public class AccountService {
 		account.setBalance(model.getBalance());
         account.setCreationDate(Instant.now());
         account.setCustomer(customer);
+        account.setEmail(model.getEmail());
         return bankAccountRepository.save(account);
 
 		
